@@ -5,7 +5,7 @@
 
 $targethost = "Remote SSH Server IP"
 $targetport = 443
-$username = "CHANGEME" # Your remote SSH server user
+$username = "CHANGEME" # Your remote SSH server username
 $password = "CHANGEME" # Your remote SSH Server password
 
 $proxyhost = "yourproxy.host.local" # CHANGE ME
