@@ -4,7 +4,7 @@
 [void][reflection.assembly]::LoadFrom((Resolve-Path ".\Renci.SshNet.dll"))
 
 $targethost = "Remote SSH Server IP"
-$targetport = 443
+$targetport = 443 # Your Remote SSH Server Port
 $username = "CHANGEME" # Your remote SSH server username
 $password = "CHANGEME" # Your remote SSH Server password
 

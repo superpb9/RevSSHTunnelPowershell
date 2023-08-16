@@ -4,7 +4,7 @@
 [void][reflection.assembly]::LoadFrom((Resolve-Path ".\Renci.SshNet.dll"))
 
 $targethost = "Remote SSH Server IP"
-$targetport = 443
+$targetport = 443 # Your Remote SSH Server Port
 $username = "CHANGEME" # Your remote SSH server username
 $password = "CHANGEME" # Your remote SSH Server password
 
@@ -13,8 +13,8 @@ $proxyport = 8080 # CHANGE ME
 
 $connInfo = New-Object Renci.SshNet.PasswordConnectionInfo($targetHost,$targetPort, $username, $password, "Http", $proxyhost, $proxyport)
 # You might need to use this one instead if your proxy requires authentication
-#$bytePassword = [System.Text.Encoding]::UTF8.GetBytes($password)
-#$connInfo = New-Object Renci.SshNet.PasswordConnectionInfo($targetHost,$targetPort, $username, $bytePassword, "Http", $proxyhost, $proxyport, "Proxy Auth Username (CHANGE ME)", "Proxy Auth Password (CHANGE ME)");
+# $bytePassword = [System.Text.Encoding]::UTF8.GetBytes($password)
+# $connInfo = New-Object Renci.SshNet.PasswordConnectionInfo($targetHost, $targetPort, $username, $bytePassword, "Http", $proxyhost, $proxyport, "Proxy Auth Username (CHANGE ME)", "Proxy Auth Password (CHANGE ME)");
 
 $sshClient = New-Object Renci.SshNet.SshClient -ArgumentList $connInfo
 $sshClient.Connect()
@@ -28,5 +28,3 @@ $remoteForwardedPort = New-Object Renci.SshNet.ForwardedPortRemote(
 
 $sshClient.AddForwardedPort($remoteForwardedPort)
 $remoteForwardedPort.Start()
-
-    
